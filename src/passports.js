@@ -5,7 +5,7 @@ require("dotenv").config();
 var secretKey = process.env.JWT_SECRET;
 
 module.exports = function (passport) {
-  console.log("yes");
+  //console.log("yes");
 
   passport.use(
     new JwtStrategy(
@@ -14,7 +14,7 @@ module.exports = function (passport) {
         jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       },
       function (jwt_payload, next) {
-        console.log("9090", jwt_payload);
+       // console.log("9090", jwt_payload);
 
         // User.findOne({email:jwt_payload.email},function(err,user){
         User.findOne({ id: jwt_payload._id }, function (err, user) {

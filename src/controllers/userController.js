@@ -7,7 +7,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 exports.addingUser = async (req, res) => {
   try {
     const newUser = new User(req.body);
-    console.log("signup...", req.body);
+    // console.log("signup...", req.body);
     const insertUser = await newUser.save();
     res.status(201).send(insertUser);
   } catch (err) {
@@ -20,7 +20,7 @@ exports.signingUser = async (req, res) => {
 
   const user = await User.findOne({ email });
 
-  console.log("100", user);
+  // console.log("100", user);
   if (!user) {
     return res.json({ error: "User Not found" });
   }
@@ -32,7 +32,7 @@ exports.signingUser = async (req, res) => {
       if (err) {
         res.json({ result: "some thing went wrong" });
       }
-      console.log("Token000  ", token);
+      // console.log("Token", token);
       res.json({ user, token: token, status: "ok" });
     }
   );

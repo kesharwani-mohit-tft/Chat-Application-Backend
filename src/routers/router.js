@@ -73,6 +73,17 @@ router.get("/", async (req, res) => {
 
 module.exports = router;
 
+
+
+
+
+
+
+
+
+
+
+
 //we will handle get requests  and varify token manually
 //   router.get('/message',varifyToken,async (req, res) => {
 //   try {

@@ -4,9 +4,9 @@ const multer = require("multer");
 const addingmessage = async (req, res) => {
   try {
     const addingmessage = new Messages(req.body);
-    console.log("111", addingmessage);
+    // console.log("111", addingmessage);
     const insertmessage = await addingmessage.save();
-    console.log("222", insertmessage);
+    // console.log("222", insertmessage);
     res.status(201).send(insertmessage);
   } catch (error) {
     res.status(400).send(error);
@@ -19,7 +19,7 @@ const getAllmessage = async (req, res) => {
     res.send(getMessage);
   } catch (error) {
     res.status(400).send(error);
-    console.log("5555", error);
+    // console.log("5555", error);
   }
 };
 
@@ -38,7 +38,7 @@ const fileUpload = async (req, res) => {
   upload(req, res, (err) => {
     if (err) {
       res.json({ success: false, err });
-      console.log("999999", err);
+    //   console.log("999999", err);
     }
     const addingmessage = new Messages({
       sms: res.req.file.path,
